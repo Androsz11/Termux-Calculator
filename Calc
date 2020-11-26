@@ -1,0 +1,39 @@
+#!/bin/bash
+clear
+figlet Calculator
+echo
+sum=0
+i="y"
+echo
+while [ $i = "y" ]
+do
+echo
+echo -e "\033[0;32mEnter the first number:\e[0m"
+read n1
+echo -e "\033[0;32mEnter the second number:\e[0m"
+read n2
+echo -e "\033[1;33m\e[4mOperations:-\e[0m"
+echo -e "\033[1;33m1.Addition\e[0m"
+echo -e "\033[1;33m2.Subtraction\e[0m"
+echo -e "\033[1;33m3.Multiplication\e[0m"
+echo -e "\033[1;33m4.Division\e[0m"
+read ch
+case $ch in
+1)sum=$(echo " $n1 + $n2" | bc -l)
+echo -e "\033[0;32m"$n1"+"$n2"="$sum;;
+2)sum=$(echo "$n1 - $n2" | bc -l)
+echo -e "\033[0;32m"$n1"-"$n2"="$sum;;
+3)sum=$(echo "$n1 * $n2" | bc -l)
+echo -e "\033[0;32m"$n1"*"$n2"="$sum;;
+4)sum=$(echo "$n1 / $n2" | bc -l)
+echo -e "\033[0;32m"$n1"/"$n2"="$sum;;
+*)echo -e "\033[0;31mWrong input! Please try again...\e[0m"
+esac
+echo "Do you want to continue?"
+echo "y/n"
+read i
+if [ $i != "y" ]
+then
+exit
+fi
+done
