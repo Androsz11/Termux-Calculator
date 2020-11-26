@@ -2,6 +2,7 @@
 echo -e "\033[1;33mInstallation Started.\e[0m"
 sleep 1
 cp Calc $PREFIX/bin
+cd $PREFIX/bin
 chmod +x Calc
 echo -e "\033[0;32mInstallation completed.\e[0m"
 echo
